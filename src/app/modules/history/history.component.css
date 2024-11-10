@@ -36,3 +36,42 @@
     font-weight: bold; /* Làm đậm chữ */
     border-radius: 50%; /* Đảm bảo nút có hình tròn */
 }
+.paginations {
+    display: flex;
+    justify-content: center;
+    /* Căn giữa */
+    margin: 20px 0;
+    /* Khoảng cách margin phía trên và dưới */
+  }
+  
+  .btn-group {
+    display: flex;
+  }
+  
+  #radioBtn .btn {
+    padding: 10px 20px;
+    /* Tăng kích thước nút */
+    font-size: 18px;
+    /* Tăng kích thước chữ */
+    margin: 0 5px;
+    /* Thêm khoảng cách giữa các nút */
+  }
+  
+  #radioBtn .notActive {
+    background-color: #ccc;
+    /* Màu nền cho nút không kích hoạt */
+    border-color: #bbb;
+    /* Viền cho nút không kích hoạt */
+  }
+  
+  #radioBtn .Active {
+    background-color: #007bff;
+    /* Màu nền cho nút kích hoạt */
+    border-color: #007bff;
+    /* Viền cho nút kích hoạt */
+    color: #fff;
+    /* Màu chữ cho nút kích hoạt */
+  }
+  .main-container {
+    margin-left: -250px;
+  }

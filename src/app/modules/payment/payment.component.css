@@ -198,3 +198,7 @@ body {
 .order-summary .text-primary {
     color: #4e2a8e;
 }
+.order-summary{
+    margin-top: -350px;
+    margin-left: 30px;
+}

@@ -13,7 +13,7 @@
 
     <!-- <link href="../../../assets/src/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     -->
-    <link href="../../../assets/layouts/modern-light-menu/css/light/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="../../../assets/layouts/horizontal-light-menu/css/light/plugins.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!--  BEGIN CUSTOM STYLE FILE  -->
@@ -45,17 +45,7 @@
                 </div>
             </div>
         </div>
-        <div class="profile-info">
-            <div class="user-info">
-                <div class="profile-img">
-                    <img src="../src/assets/img/profile-30.png" alt="avatar">
-                </div>
-                <div class="profile-content">
-                    <h6 class="">{{name}}</h6>
-                    <p class="">{{ role === '0' ? 'Người dùng' : 'Quản trị viên' }}</p>
-                </div>
-            </div>
-        </div>
+        
 
         <div class="shadow-bottom"></div>
         <ul class="list-unstyled menu-categories" id="accordionExample">
@@ -149,7 +139,7 @@
                     </div>
                 </a>
             </li>
-
+            <!--
             <li class="menu">
                 <a [routerLink]="['/user-profile/']" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
@@ -164,6 +154,7 @@
                     </div>
                 </a>
             </li>
+            -->
             <li class="menu">
                 <a [routerLink]="['/history']" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
@@ -253,21 +244,7 @@
                 </a>
             </li>
 -->
-            <li class="menu">
-                <a  (click)="logoutBtn()" [routerLink]="['/dangnhap']" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-log-out">
-                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                            <polyline points="16 17 21 12 16 7"></polyline>
-                            <line x1="21" y1="12" x2="9" y2="12"></line>
-                        </svg>
-
-                        <span>Đăng xuất</span>
-                    </div>
-                </a>
-            </li>
+            
 
 
         </ul>

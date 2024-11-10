@@ -24,7 +24,8 @@ export class CartService {
     deleteCart(cartId: number): Observable<any> {
         return this.http.delete(`${this.apiUrl}/${cartId}`);
     }
-    deleteCartByUserid(userId:number):Observable<string>{
-        return this.http.delete<string>(`${this.apiUrl}/DeleteCart/${userId}`);
-    }
+    deleteCartByUserid(userId: number): Observable<boolean> {
+        return this.http.delete<boolean>(`${this.apiUrl}/DeleteCart/${userId}`);
+      }
+      
 }

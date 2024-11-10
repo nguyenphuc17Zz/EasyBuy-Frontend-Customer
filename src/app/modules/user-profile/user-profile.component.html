@@ -32,26 +32,21 @@
   <link href="../../../assets/src/assets/css/light/components/list-group.css" rel="stylesheet" type="text/css">
 
   <link href="../../../assets/src/assets/css/light/users/account-setting.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="user-profile.component.css">
   <!--  END CUSTOM STYLE FILE  -->
 </head>
 <app-header></app-header>
 <app-sidebar></app-sidebar>
 
-<body style="margin-top: 100px;">
+<body >
+
   <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
     <form class="section general-info" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="info">
-        <h6 class="">General Information</h6>
+        <h6 class="">Thông tin người dùng</h6>
         <div class="row">
           <div class="col-lg-11 mx-auto">
             <div class="row">
-              <div class="col-xl-2 col-lg-12 col-md-4">
-                <div class="profile-image mt-4 pe-md-4">
-                  <div class="img-uploader-content">
-                    <input type="file" class="filepond" name="filepond" accept="image/png, image/jpeg, image/gif" />
-                  </div>
-                </div>
-              </div>
               <div class="col-xl-10 col-lg-12 col-md-8 mt-md-0 mt-4">
                 <div class="form">
                   <div class="row">
@@ -67,7 +62,7 @@
                         </div>
                       </div>
                     </div>
-    
+
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="email">Email</label>
@@ -82,7 +77,7 @@
                         </div>
                       </div>
                     </div>
-    
+
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="address">Địa chỉ</label>
@@ -97,7 +92,7 @@
                         </div>
                       </div>
                     </div>
-    
+
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="phone">SDT</label>
@@ -112,7 +107,7 @@
                         </div>
                       </div>
                     </div>
-    
+
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="password">Mật khẩu</label>
@@ -127,7 +122,7 @@
                         </div>
                       </div>
                     </div>
-    
+
                     <div class="col-md-12 mt-1">
                       <div class="form-group text-end">
                         <button class="btn btn-secondary" [disabled]="form.invalid">Save</button>
@@ -141,9 +136,11 @@
         </div>
       </div>
     </form>
-    
+
   </div>
-  <app-footer></app-footer>
+
+
 </body>
+<app-footer></app-footer>
 
 </html>

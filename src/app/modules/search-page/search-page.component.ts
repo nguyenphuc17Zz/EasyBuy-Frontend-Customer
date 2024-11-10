@@ -161,7 +161,7 @@ export class SearchPageComponent implements OnInit {
       this.products = this.products.filter(p => p.categoryId === categoryid);
     }
     if (gender !== 'all') {
-      this.products = this.products.filter(p => p.gender === gender);
+      this.products = this.products.filter(p => p.gender.toLowerCase() === gender.toLowerCase());
     }
 
     this.products = this.products.filter(p => {

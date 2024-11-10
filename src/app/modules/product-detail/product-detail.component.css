@@ -90,3 +90,6 @@
 .product-info strong {
     color: #333;
 }
+.main-container {
+    margin-left: -250px;
+  }

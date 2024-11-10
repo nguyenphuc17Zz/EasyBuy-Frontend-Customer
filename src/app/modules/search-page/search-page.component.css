@@ -122,3 +122,6 @@
   .product-container{
     margin-top: 50px;
   }
+  .main-container {
+    margin-left: -250px;
+  }

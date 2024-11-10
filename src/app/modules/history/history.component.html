@@ -46,7 +46,7 @@
         <!--  END SIDEBAR  -->
 
         <!--  BEGIN CONTENT AREA  -->
-        <div id="content" class="main-content" *ngIf="orders.length > 0 ; else nothing">
+        <div id="content" class="main-content" >
 
             <div class="layout-px-spacing">
 
@@ -63,10 +63,22 @@
                         </nav>
                     </div>
                     <!-- /BREADCRUMB -->
-
-                    <div class="row layout-top-spacing">
+                    <div class="container mt-3">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <label for="dateFrom" class="form-label">Start Date</label>
+                            <input type="date" id="dateFrom" class="form-control" [(ngModel)]="filterObj.dateFrom" (change)="executeFilter()" [max]="maxDate">
+                          </div>
+                          <div class="col-md-6">
+                            <label for="dateNow" class="form-label">End Date</label>
+                            <input type="date" id="dateNow" class="form-control" [(ngModel)]="filterObj.dateNow" (change)="executeFilter()" [max]="maxDate">
+                          </div>
+                        </div>
+                      </div>
+                      
+                      
+                    <div class="row layout-top-spacing" *ngIf="ordersTemp.length>0 ; else nothing">
                         <div class="container mt-4">
-                            <h2>Order History</h2>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -81,12 +93,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let order of orders">
+                                    <tr *ngFor="let order of ordersShow">
                                         <td>{{ order.id }}</td>
-                                        <td>{{ order.orderDate | date }}</td>
-                                        <td>{{ order.shippingFee | currency }}</td>
-                                        <td>{{ order.orderDiscount| currency }}</td>
-                                        <td>{{ order.orderTotal| currency }}</td>
+                                        <td>{{ convertDateToDMY(order.orderDate) }}</td>  
+                                        <td>{{ formatCurrencyVND(order.shippingFee) }}</td>
+                                        <td>{{ formatCurrencyVND(order.orderDiscount)}}</td>
+                                        <td>{{ formatCurrencyVND(order.orderTotal) }}</td>
                                         <td>{{ order.address }}</td>
                                         <td>
                                             <span [ngClass]="{
@@ -104,6 +116,16 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="paginations">
+                                <div>
+                                    <div class="btn-group" id="radioBtn">
+                                        <a class="btn btn-primary btn-sm notActive" (click)="onPrevious()" ><</a>
+                                        <a class="btn btn-primary btn-sm Active"  >{{filterObj.PageNumber}}</a>
+                                        <a class="btn btn-primary btn-sm notActive" (click)="onNext()" >></a>
+                        
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Order Details Overlay -->
@@ -133,7 +155,9 @@
                         </div>
 
                     </div>
-
+                    <ng-template #nothing>
+                        <h4 style="margin-top: 100px; margin-left: 300px;">Chưa có đơn hàng nào được đặt</h4>
+                    </ng-template>
                 </div>
 
             </div>
@@ -141,9 +165,7 @@
 
 
         </div>
-        <ng-template #nothing>
-            <h4 style="margin-top: 100px; margin-left: 300px;">Chưa có đơn hàng nào được đặt</h4>
-        </ng-template>
+        
         <!--  END CONTENT AREA  -->
     </div>
     <!-- END MAIN CONTAINER -->

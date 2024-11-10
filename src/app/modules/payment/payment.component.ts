@@ -24,7 +24,7 @@ import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-payment',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, HeaderComponent, SidebarComponent, FooterComponent],
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css'
 })
@@ -211,15 +211,15 @@ export class PaymentComponent implements OnInit {
       })
     })
   }
-  deleteCartByUserid(userId: number): Promise<string> {
+  deleteCartByUserid(userId: number): Promise<boolean> {
     return new Promise((resolve, reject) => {
       this.cartService.deleteCartByUserid(userId).subscribe({
-        next: (res:string) => {
-          resolve(res);
+        next: (res: boolean) => {
+          resolve(res); // Trả về `true` nếu thành công, `false` nếu không thành công
         },
         error: (error) => reject(error)
-      })
-    })
+      });
+    });
   }
   async onThanhToan() {
     if (this.paymentId === -1) {
@@ -264,10 +264,17 @@ export class PaymentComponent implements OnInit {
         console.error(error);
       }
     }
-    if (this.fromCart) {  // làm xong xóa sản phẩm trong giỏ hàng
-      let a = await this.deleteCartByUserid(this.userId);
+
+    if (this.fromCart) {  // Nếu cần xóa sản phẩm trong giỏ hàng
+      let isDeleted = await this.deleteCartByUserid(this.userId);
+      if (!isDeleted) {
+        alert('Không thể xóa giỏ hàng. Vui lòng thử lại.');
+        return;
+      }
     }
+
     alert('Tạo hóa đơn thành công');
     this.router.navigate(['/history']);
+
   }
 }
