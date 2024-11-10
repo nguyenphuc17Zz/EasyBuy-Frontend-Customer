@@ -10,6 +10,7 @@ import { DangnhapComponent } from './modules/auth/dangnhap/dangnhap.component';
 import { DangkiComponent } from './modules/auth/dangki/dangki.component';
 import { SearchPageComponent } from './modules/search-page/search-page.component';
 import { PaymentComponent } from './modules/payment/payment.component';
+import { InvoiceComponent } from './modules/invoice/invoice.component';
 
 export const routes: Routes = [
     {
@@ -57,6 +58,10 @@ export const routes: Routes = [
         path:'payment',
         component:PaymentComponent
     },
+    {
+        path:'invoice',
+        component:InvoiceComponent
+    }
     
 
 

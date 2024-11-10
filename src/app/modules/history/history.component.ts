@@ -10,6 +10,7 @@ import { Orderline } from '../../models/orderline.model';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product.model';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-history',
@@ -47,7 +48,7 @@ export class HistoryComponent implements OnInit {
   }
 
   constructor(private orderService: OrderService, private orderlineService: OrderlineService
-    , private productService: ProductService
+    , private productService: ProductService, private router:Router
   ) { }
   getCookie(name: string): string | null {
     const nameEQ = `${name}=`;
@@ -159,36 +160,36 @@ export class HistoryComponent implements OnInit {
       this.filterObj.dateFrom = tempDate.toISOString();
       return;
     }
-  
+
     this.filterObj.PageNumber = 1;
-  
+
     // Chuyển dateFrom và dateNow thành ngày mà không có giờ, phút, giây
     const dateFrom = this.removeTime(new Date(this.filterObj.dateFrom));
     const dateNow = this.removeTime(new Date(this.filterObj.dateNow));
-  
+
     // Lọc các đơn hàng
     this.ordersTemp = this.orders.filter(order => {
       const orderDate = this.removeTime(new Date(order.orderDate));
       return orderDate >= dateFrom && orderDate <= dateNow;
     });
-  
+
     this.calculateTotalPages();
     this.setDataPageNumber(this.filterObj.PageNumber);
   }
-  
+
   // Hàm loại bỏ giờ, phút, giây và mili giây
   removeTime(date: Date): Date {
     date.setHours(0, 0, 0, 0); // Đặt giờ, phút, giây và mili giây về 0
     return date;
   }
-  
+
   convertDateToDMY(dateString: string | Date): string {
     const date = new Date(dateString);  // Tạo đối tượng Date từ chuỗi hoặc Date
-  
+
     const day = ("0" + date.getDate()).slice(-2);
     const month = ("0" + (date.getMonth() + 1)).slice(-2);
     const year = date.getFullYear();
-    
+
     return `${day}-${month}-${year}`;
   }
   maxDate: string = '';
@@ -197,5 +198,7 @@ export class HistoryComponent implements OnInit {
     const today = new Date();
     this.maxDate = today.toISOString().split('T')[0];
   }
-
+  viewInvoice(orderId: number) {
+    this.router.navigate(['/invoice'], { queryParams: { orderId: orderId } });
+}
 }
