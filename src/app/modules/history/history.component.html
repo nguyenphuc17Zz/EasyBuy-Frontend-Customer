@@ -129,7 +129,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Order Details Overlay -->
                         <div class="overlay1" *ngIf="showOverlay">
                             <div class="overlay-content">
@@ -146,7 +145,7 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let orderline of selectedOrder">
-                                            <td><img [src]="'../src/assets/img/'+orderline.product?.productImg" alt="Product Image" width="50"></td>
+                                            <td><img [src]="'https://localhost:7238/'+orderline.product?.productImg" alt="Product Image" width="50"></td>
                                             <td>{{ orderline.product?.productName }} - {{ orderline.product?.model }} - {{ orderline.product?.gender }} </td>
                                             <td>{{ orderline.quantity }}</td>
                                             <td>{{ formatCurrencyVND(orderline.unitPrice) }}</td>

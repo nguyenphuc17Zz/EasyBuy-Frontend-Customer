@@ -96,6 +96,7 @@ export class ProductsComponent implements OnInit {
       this.calculateTotalPages();
       // SET PRODUCTS SHOW
       this.setDataPageNumber(this.filterObj.PageNumber);
+      
     } catch (error) {
       console.error('Lỗi khi gọi API:', error);
     }

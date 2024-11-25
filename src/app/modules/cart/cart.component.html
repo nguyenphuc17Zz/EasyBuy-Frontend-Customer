@@ -30,7 +30,7 @@
             <div class="cart-items" >
                 <div class="row cart-item p-3 mb-3 align-items-center" *ngFor="let cart of cartShow">
                     <div class="col-md-2 text-center">
-                        <img [src]="'../src/assets/img/'+cart.product.productImg" class="img-fluid rounded"
+                        <img [src]="'https://localhost:7238/'+cart.product.productImg" class="img-fluid rounded"
                             alt="Product Image" [routerLink]="['/product-detail', cart.product.id]"
                             style="cursor: pointer;">
                     </div>
