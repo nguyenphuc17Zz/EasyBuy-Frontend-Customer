@@ -71,8 +71,16 @@
             </div>
         </div>
         <ng-template #empty>
-            <h4 style=" margin-left: 250px;">Chưa có đơn hàng nào được đặt</h4>
+            <div class="container">
+            <div class="empty-cart d-flex flex-column align-items-center justify-content-center text-center vh-100">
+                <h4 class="mb-2">Giỏ hàng của bạn đang trống</h4>
+                <p class="text-muted mb-4">Hãy khám phá sản phẩm và thêm vào giỏ hàng của bạn!</p>
+                <a  [routerLink]="['/products']" class="btn btn-primary">Mua sắm ngay</a>
+            </div>
+        </div>
         </ng-template>
+        
+        
 
     </div>
 
