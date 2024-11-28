@@ -58,7 +58,7 @@
             <tbody>
                 <tr *ngFor="let product of products">
                     <td>{{product.product.productName}} -{{product.product.model}} - {{product.product.color}} -
-                        {{product.product.gender}}</td>
+                        {{ product.product.gender === "1" ? "Nam" : "Nữ" }}</td>
                     <td class="text-center">x{{product.quantity}}</td>
                     <td class="text-right">{{formatCurrencyVND(product.quantity * ((1-product.product.discount)
                         *product.product.priceToSell))}}</td>

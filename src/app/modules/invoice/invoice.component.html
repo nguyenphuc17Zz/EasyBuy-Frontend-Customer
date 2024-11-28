@@ -124,7 +124,7 @@
                                                                         <tbody>
                                                                             <tr *ngFor="let orderline of orderLine">
                                                                                 <td>{{orderline.product?.id}}</td>
-                                                                                <td>{{orderline.product?.productName}} - {{orderline.product?.model}} - {{orderline.product?.gender}}</td>
+                                                                                <td>{{orderline.product?.productName}} - {{orderline.product?.model}} - {{orderline.product?.gender=== "1" ? "Nam" : "Nữ"}}</td>
                                                                                 <td class="text-end">{{orderline.quantity}}</td>
                                                                                 <td class="text-end">{{formatCurrencyVND(orderline.unitPrice)}}</td>
                                                                                 <td class="text-end">{{formatCurrencyVND(orderline.quantity*orderline.unitPrice)}}</td>
